@@ -1,0 +1,308 @@
+/** Remove underline from links. */
+a {
+    text-decoration: none !important;
+}
+
+/** -------------------------------------------- */
+/** Navbar custom. */
+.navbar-custom {
+
+    /** -------------------------------------------- */
+    .toggle-custom {
+        box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+        background-color: rgb(223, 140, 147);
+    }
+
+    /** -------------------------------------------- */
+
+    // Logo title 
+    .logo-title {
+        color: #e8888d !important;
+        font-size: 1.6rem;
+        font-weight: bolder;
+
+        a {
+            color: inherit;
+        }
+    }
+
+    .logo-title:hover {
+        color: #e65158 !important;
+        transform: scale(1.1);
+
+    }
+
+    .logo-title:active {
+        filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.422)) !important;
+        transform: translateY(2px);
+
+    }
+
+    /** -------------------------------------------- */
+
+    // Buttons link custom.
+    button {
+        color: rgb(223, 140, 147);
+    }
+
+    /** -------------------------------------------- */
+    // Buttons link hover.
+    .nav-btn-custom {
+        font-size: 1.15rem !important;
+        margin-left: 4px;
+    }
+
+    .nav-btn-custom:hover {
+        border-radius: 10px !important;
+        background-color: rgba(227, 152, 158, 0.552) !important;
+        color: #e65158 !important;
+        letter-spacing: 0.05rem !important;
+    }
+
+    :active .nav-btn-custom:hover {
+        border-radius: 10px !important;
+        background-color: rgba(227, 152, 158, 0.637) !important;
+        transform: translateY(3px) !important;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.305) !important;
+    }
+
+    /** -------------------------------------------- */
+    // Buttons login and register.
+    .outline-custom {
+        margin-left: 5px;
+        color: rgb(210, 133, 133);
+        border: solid 1px rgb(210, 133, 133);
+    }
+
+    .outline-custom:hover {
+        background-color: rgb(210, 133, 133);
+        color: white;
+    }
+
+    .outline-custom:active {
+        transform: translateY(3px);
+        box-shadow: 2px 2px 4px black;
+    }
+
+    .cart-btn {
+        margin-left: 5px;
+        background-color: rgb(210, 133, 133);
+        color: white;
+        border: none;
+        cursor: default;
+    }
+
+
+    .cart-btn:hover {
+        background-color: rgb(207, 107, 107);
+        color: white;
+        cursor: default;
+    }
+
+    /**
+    .cart-btn:active {
+        background-color: rgb(207, 107, 107);
+        transform: translateY(3px);
+        box-shadow: 2px 2px 4px black;
+    }
+     */
+}
+
+/** -------------------------------------------- */
+
+/** Card custom from Home. */
+.card-custom {
+    //Card text background custom.
+    background-color: rgba(255, 255, 255, 0) !important;
+}
+
+/** -------------------------------------------- */
+
+/**Custom container from login. */
+.login-custom {
+    width: 100%;
+    min-height: 100vh;
+    padding: 0 20px;
+    display: flex;
+
+    .loginContainer {
+        padding: 60px;
+        margin: auto;
+        width: 100%;
+        max-width: 520px;
+        min-height: 600px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background: radial-gradient(ellipse at left bottom,
+                rgb(246, 186, 190) 0%,
+                rgb(226, 135, 141) 59%,
+                rgba(232, 114, 122, 0.648) 100%);
+        box-shadow: 0 50px 70px -20px rgba(0, 0, 0, 0.8);
+
+        .title-color {
+            color: white;
+        }
+
+        button {
+            border: none;
+            outline: none;
+            width: 100%;
+            padding: 15px 0;
+            color: #fff;
+            font-size: 16px;
+            letter-spacing: 1px;
+            background: rgb(195, 101, 107);
+            cursor: pointer;
+        }
+
+        label {
+            color: white;
+            margin: 14px 0;
+            display: block;
+            font-size: 22px;
+            line-height: 1;
+        }
+
+        input {
+            width: 100%;
+            border: none;
+            outline: none;
+            font-size: 19px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            letter-spacing: 1px;
+        }
+
+        .btn-container {
+            margin: 14px 0 0 0;
+            width: 100%;
+            padding: 24px 0;
+        }
+
+        .btn-social-logo {
+            align-self: center;
+            margin-top: 20px;
+            width: 20%;
+            height: 56px;
+
+            img {
+                width: 25px;
+            }
+        }
+    }
+
+    @media only screen and(max-width: 800px) {
+        .btn-social-logo {
+            width: 70px !important;
+        }
+    }
+}
+
+
+
+/** -------------------------------------------- */
+
+/**Sidebar custom. */
+.sidebar-custom {
+    .sidebar-logo-title {
+        color: #e65158;
+        padding: 10px;
+        cursor: default;
+    }
+
+    .avatar {
+        border-radius: 100px;
+        width: 40px;
+        margin-right: 30px;
+    }
+
+    .side-bar-avatar {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 3.5rem;
+        border-radius: 100%;
+        margin-bottom: 10px;
+    }
+
+    .sidebar-button {
+        margin-top: 10px;
+        border: none;
+        background-color: #e65158 !important;
+        width: 100%;
+    }
+
+    .sidebar-logout-button {
+        color: white !important;
+        font-weight: bolder;
+        background-color: #e65158 !important;
+    }
+
+    .cart-btn-sidebar {
+        color: #e66e74;
+        cursor: default;
+    }
+
+    .cart-btn-sidebar:hover {
+        color: #e65158;
+        cursor: default;
+    }
+}
+
+/** -------------------------------------------- */
+// Settings page custom.
+.settings-custom {
+    .true-verified-label {
+        position: absolute;
+        right: 0px;
+        color: green;
+        padding: 30px;
+    }
+}
+
+/** -------------------------------------------- */
+.product-custom {
+    .product-btn-custom {
+        color: #e65158;
+        border: 1px solid #e65158;
+    }
+
+    .product-btn-custom:hover {
+        background-color: #e65158;
+        color: white;
+    }
+
+    .product-btn-custom:active {
+        background-color: #e65158;
+        color: white;
+        transform: translateY(3px);
+    }
+
+    .product-btn-custom_2 {
+        background-color: #e65158;
+        color: white;
+    }
+
+    .product-btn-custom_2:hover {
+        color: white;
+    }
+
+    .product-btn-custom_2:active {
+        color: white;
+        transform: translateY(3px);
+    }
+}
+
+/** -------------------------------------------- */
+
+// Responsive background.
+@media only screen and(max-width: 800px) {
+    .card-img {
+        width: 100% !important;
+        height: 960px !important;
+    }
+}
+
+/** -------------------------------------------- */

@@ -1,0 +1,30 @@
+// Examples
+/** App.scss file 
+@import "custom";
+
+.header {
+  text-align: center;
+}
+
+span {
+  &.dangerText {
+    color: #dc3545;
+  }
+
+  &.infoText {
+    color: #17a2b8;
+    font-weight: bold;
+  }
+}
+*/
+
+/** ------------------------------------ */
+
+/** custom.scss file
+$theme-colors: (
+    "info": tomato,
+    "danger": teal
+);
+
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+ */
