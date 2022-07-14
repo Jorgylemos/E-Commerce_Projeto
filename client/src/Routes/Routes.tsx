@@ -14,6 +14,8 @@ import Settings from '../Pages/Dashboard/Settings/Settings';
 /**@Components import; */
 import Navbar from '../Components/Home/Navbar/Navbar'; /**@Home Navbar */
 import Navbar_User from '../Components/Dashboard/Navbar/Navbar'; /**@Dashboard Navbar */
+import Product from '../Components/Products/Product';
+import Products from '../Components/Products/Products';
 
 const Router = () => {
 
@@ -56,6 +58,9 @@ const Router = () => {
 
             <Route path="/dashboard" element={user ? <Dashboard /> : <Navigate to='/login' />} />
             <Route path="/settings" element={user ? <Settings user={user} /> : <Navigate to="/login" />} />
+
+            <Route path='produtos' element={<Products />} />
+            <Route path='produtos/:id' element={<Product />} />
 
             <Route path='/404' element={<h1 style={{ marginTop: '80px', textAlign: 'center', padding: '80px', color: '#000' }} >404 Not Found</h1>} />
             <Route path='/*' element={<Navigate replace to="/404" />} />

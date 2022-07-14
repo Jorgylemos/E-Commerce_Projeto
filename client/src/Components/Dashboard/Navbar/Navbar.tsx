@@ -10,6 +10,8 @@ import Sidebar from '../Sidebar/Sidebar';
 import '../../../../assets/styles/main.scss';
 
 const Index = ({user}: {user: any}) => {
+    
+const state = useSelector((state: any) => state.cartHandle)
 
   return (
     <Navbar bg="light" expand="lg" fixed="top" className="navbar-custom">
@@ -30,7 +32,7 @@ const Index = ({user}: {user: any}) => {
                                 <Button className="nav-btn-custom" variant="me-2" disabled>Contato</Button>
                             </Nav>
                             <Sidebar user={user} />
-                            
+                            <Button className="cart-btn" variant=""> <i className="fa fa-shopping-cart"></i>({state.length})</Button>
                         </Navbar.Collapse>
                     </Container>
                 </Navbar>

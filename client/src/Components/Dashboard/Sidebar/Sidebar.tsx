@@ -17,8 +17,7 @@ function Sidebar({ user }: { user: any }, { ...props }: { props: any }) {
         window.open('http://localhost:5000/auth/logout', '_self');
     }
 
-    // const state = useSelector((state: any) => state.cartHandle)
-    // <Button className="cart-btn-sidebar" variant=""> <i className="fa fa-shopping-cart"></i>({state.length})</Button>
+    const state = useSelector((state: any) => state.cartHandle)
 
     /**
     const usertext = user.toString(user)
@@ -36,7 +35,7 @@ function Sidebar({ user }: { user: any }, { ...props }: { props: any }) {
             <Offcanvas className="sidebar-custom" placement='end' show={show} onHide={handleClose} {...props}>
                 <Offcanvas.Header>
                     <Offcanvas.Title className="sidebar-logo-title">CartStore</Offcanvas.Title>
-                    
+                    <Button className="cart-btn-sidebar" variant=""> <i className="fa fa-shopping-cart"></i>({state.length})</Button>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
                     <Image
