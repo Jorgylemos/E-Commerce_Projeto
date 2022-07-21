@@ -1,0 +1,11 @@
+{
+  "name": "E-Commerce_Projeto",
+  "version": "1.0.0",
+  "main": "./server/src/index.js",
+  "repository": "https://github.com/Jorgylemos/E-Commerce_Projeto.git",
+  "author": "Jorge Lemos <54046641+Jorgylemos@users.noreply.github.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "node ./server/src/index.js"
+  }
+}
