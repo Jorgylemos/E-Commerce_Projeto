@@ -11,6 +11,7 @@ import Register from '../Pages/Home/Register/Register';
 /**@Imports from Dashboard folder; */
 import Dashboard from '../Pages/Dashboard/Index/Index';
 import Settings from '../Pages/Dashboard/Settings/Settings';
+import RegisterProduct from '../Pages/Dashboard/RegisterProduct/AddProduct'
 
 /**@Components import; */
 import Navbar from '../Components/Home/Navbar/Navbar'; /**@Home Navbar */
@@ -21,7 +22,6 @@ import Products from '../Components/Products/Products';
 const Router = () => {
 
     const [user, setUser] = useState(null); /**User state receive getUser data, inside useEffect; */
-    const [userLocal, setUserLocal] = useState(null)
 
     const requestHeaders: any = {
         Accept: "application/json",
@@ -38,7 +38,7 @@ const Router = () => {
             withCredentials: true,
             url: 'http://localhost:5000/user'
         }).then((res) => {
-            setUserLocal(res.data);
+            setUser(res.data);
             console.log(res.data);
         })
     }
@@ -88,6 +88,7 @@ const Router = () => {
                 <Route path="/register" element={user ? <Navigate to='/' /> : <Register />} />
 
                 <Route path="/dashboard" element={user ? <Dashboard /> : <Navigate to='/login' />} />
+                <Route path='/RegisterProduct' element={<RegisterProduct />} />
                 <Route path="/settings" element={user ? <Settings user={user} /> : <Navigate to="/login" />} />
 
                 <Route path='produtos' element={<Products />} />

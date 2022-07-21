@@ -1,8 +1,16 @@
 import React from 'react'
+import { Link, Outlet } from 'react-router-dom';
 
 const Index = () => {
+
   return (
-    <div>Index</div>
+    <div style={{ marginTop: '100px', textAlign: 'center' }}>
+      <Link to='/registerProduct'>
+        <button>Adicionar Produto</button>
+      </Link>
+
+      <Outlet />
+    </div>
   )
 }
 

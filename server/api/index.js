@@ -7,17 +7,32 @@ const app = express()
 
 const kafka = new Kafka({
     clientId: 'api',
-    brokers: ['kafka:9092']
+    brokers: ['localhost:9092']
 });
+
+/** Unlock producer to all routes */
+
+const producer = kafka.producer();
+
+app.use((req, res, next) => {
+    req.producer = producer;
+
+    return next();
+})
+
+/**
+    * Register routes from application
+*/
 
 app.use(routes)
 
-const producer = kafka.producer();
-const consumer = kafka.consumer();
+//const consumer = kafka.consumer();
 
 const run = async () => {
     //Producing
+
     await producer.connect()
+    /**
     await producer.send({
         topic: 'test-topic',
         messages: [
@@ -25,12 +40,15 @@ const run = async () => {
         ]
 
     })
+     */
 
     //Consuming
 
+    app.listen(3333)
 
 }
 
-module.exports = run
+run().catch(console.error)
+
 
 
