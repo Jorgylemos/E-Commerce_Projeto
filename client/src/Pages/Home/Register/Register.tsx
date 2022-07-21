@@ -1,18 +1,32 @@
 /**@Librarys */
 import { Card, Container, Button, Image } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import Axios from 'axios';
 
 /**@Middlewares */
 import GoogleLogo from '../../../../assets/images/social-media-logos/google.png';
 
 /**@Others imports */
 import '../../../../assets/styles/main.scss';
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
 
 function Register() {
 
-    const register = () => {
+    const [registerEmail, setRegisterEmail] = useState("");
+    const [registerPassword, setRegisterPassword] = useState("");
 
+    const register = () => {
+        Axios({
+            method: 'POST',
+            data: {
+                username: registerEmail,
+                password: registerPassword,
+            },
+            withCredentials: true,
+            url: 'http://localhost:5000/register',
+        }).then((res) => {
+            console.log(res);
+        })
     }
 
     return (
@@ -27,12 +41,14 @@ function Register() {
                             autoFocus
                             required
                             placeholder='E-mail'
+                            onChange={(e) => setRegisterEmail(e.target.value)}
                         />
                         <Card.Title className="title-color py-3 mb-0">Password</Card.Title>
                         <input
                             type="password"
                             required
                             placeholder='Password'
+                            onChange={(e) => setRegisterPassword(e.target.value)}
                         />
 
                         <Container className="btn-container">

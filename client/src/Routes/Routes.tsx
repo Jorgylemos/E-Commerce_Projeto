@@ -1,6 +1,7 @@
 /**@Librarys Import */
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
+import Axios from 'axios';
 
 /**@Imports from Home folder; */
 import Home from '../Pages/Home/Index/Index';
@@ -20,12 +21,42 @@ import Products from '../Components/Products/Products';
 const Router = () => {
 
     const [user, setUser] = useState(null); /**User state receive getUser data, inside useEffect; */
+    const [userLocal, setUserLocal] = useState(null)
 
     const requestHeaders: any = {
         Accept: "application/json",
         "Content-Type": "application/json",
         "Access-Control-Allow-Credentials": true,
     }
+
+    const [loginUsername, setLoginUsername] = useState("");
+    const [loginPassword, setLoginPassword] = useState("");
+
+    const getUserLocal = () => {
+        Axios({
+            method: 'GET',
+            withCredentials: true,
+            url: 'http://localhost:5000/user'
+        }).then((res) => {
+            setUserLocal(res.data);
+            console.log(res.data);
+        })
+    }
+
+    const login = () => {
+        Axios({
+            method: 'POST',
+            data: {
+                username: loginUsername,
+                password: loginPassword
+            },
+            withCredentials: true,
+            url: 'http://localhost:5000/login'
+        }).then(() => {
+            getUserLocal()
+        })
+    }
+
 
     useEffect(() => {
         const getUser = async () => {
@@ -34,7 +65,7 @@ const Router = () => {
                 credentials: "include",
                 headers: requestHeaders
             }).then((res) => {
-                if(res.status === 200){
+                if (res.status === 200) {
                     return res.json()
                 }
                 throw new Error("authentication has been failed!")
@@ -50,21 +81,21 @@ const Router = () => {
 
     return (
         <>
-        {user ? <Navbar_User user={user} /> : <Navbar />}
-        <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={user ? <Navigate to='/' /> : <Login />} />
-            <Route path="/register" element={user ? <Navigate to='/' /> : <Register />} />
+            {user ? <Navbar_User user={user} /> : <Navbar />}
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/login" element={user ? <Navigate to='/' /> : <Login login={login} setLoginUsername={setLoginUsername} setLoginPassword={setLoginPassword} />} />
+                <Route path="/register" element={user ? <Navigate to='/' /> : <Register />} />
 
-            <Route path="/dashboard" element={user ? <Dashboard /> : <Navigate to='/login' />} />
-            <Route path="/settings" element={user ? <Settings user={user} /> : <Navigate to="/login" />} />
+                <Route path="/dashboard" element={user ? <Dashboard /> : <Navigate to='/login' />} />
+                <Route path="/settings" element={user ? <Settings user={user} /> : <Navigate to="/login" />} />
 
-            <Route path='produtos' element={<Products />} />
-            <Route path='produtos/:id' element={<Product />} />
+                <Route path='produtos' element={<Products />} />
+                <Route path='produtos/:id' element={<Product />} />
 
-            <Route path='/404' element={<h1 style={{ marginTop: '80px', textAlign: 'center', padding: '80px', color: '#000' }} >404 Not Found</h1>} />
-            <Route path='/*' element={<Navigate replace to="/404" />} />
-        </Routes>
+                <Route path='/404' element={<h1 style={{ marginTop: '80px', textAlign: 'center', padding: '80px', color: '#000' }} >404 Not Found</h1>} />
+                <Route path='/*' element={<Navigate replace to="/404" />} />
+            </Routes>
         </>
     )
 }

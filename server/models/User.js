@@ -15,4 +15,10 @@ var userSchema = mongoose.Schema({
     email: String
 });
 
-module.exports = mongoose.model('User', userSchema);
+const user = new mongoose.Schema({
+    username: String,
+    password: String,
+});
+
+
+module.exports = mongoose.model('User', userSchema) && mongoose.model('UserLocal', user);

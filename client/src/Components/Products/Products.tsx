@@ -13,7 +13,7 @@ function Products() {
     useEffect(() => {
         const getProducts = async () => {
             setLoading(true);
-            const res = await fetch("http://52.204.139.5:3000/products");
+            const res = await fetch("https://fakestoreapi.com/products");
 
             if (componentMounted) {
                 setData(await res.clone().json());

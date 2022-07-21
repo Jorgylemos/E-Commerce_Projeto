@@ -26,11 +26,11 @@ function Sidebar({ user }: { user: any }, { ...props }: { props: any }) {
     return (
         <>
             <Button variant="" onClick={handleShow} className="sidebar-custom me-2">
-            <Image
-                        src={user.user.photos[0].value}
-                        alt=""
-                        className="side-bar-avatar"
-                    />
+                <Image
+                    src=""
+                    alt=""
+                    className="side-bar-avatar"
+                />
             </Button>
             <Offcanvas className="sidebar-custom" placement='end' show={show} onHide={handleClose} {...props}>
                 <Offcanvas.Header>
@@ -39,10 +39,11 @@ function Sidebar({ user }: { user: any }, { ...props }: { props: any }) {
                 </Offcanvas.Header>
                 <Offcanvas.Body>
                     <Image
-                        src={user.user.photos[0].value}
+                        src=""
                         alt=""
                         className="side-bar-avatar"
                     />
+                    <p>{user.username}</p>
                     <Link to="settings">
                         <Button className="sidebar-button">Configuraçoes</Button>
                     </Link>

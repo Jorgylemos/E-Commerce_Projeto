@@ -2,7 +2,7 @@
 import { Container, Card, Image } from 'react-bootstrap';
 
 /** @Middlewares */
-
+import Footer from '../../../Components/Home/Footer/Footer';
 
 /**@Others imports */
 import '../../../../assets/styles/main.scss';
@@ -34,6 +34,8 @@ function Home() {
                     </Container>
                 </Card>
             </Card.ImgOverlay>
+
+            <Footer />
         </>
 
     )

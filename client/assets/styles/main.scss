@@ -17,7 +17,7 @@ a {
 
     // Logo title 
     .logo-title {
-        color: #e8888d !important;
+        color: white !important;
         font-size: 1.6rem;
         font-weight: bolder;
 
@@ -42,7 +42,7 @@ a {
 
     // Buttons link custom.
     button {
-        color: rgb(223, 140, 147);
+        color: white;
     }
 
     /** -------------------------------------------- */
@@ -80,6 +80,110 @@ a {
     }
 
     .outline-custom:active {
+        transform: translateY(3px);
+        box-shadow: 2px 2px 4px black;
+    }
+
+    .cart-btn {
+        margin-left: 5px;
+        background-color: rgb(210, 133, 133);
+        color: white;
+        border: none;
+        cursor: default;
+    }
+
+
+    .cart-btn:hover {
+        background-color: rgb(207, 107, 107);
+        color: white;
+        cursor: default;
+    }
+
+    /**
+    .cart-btn:active {
+        background-color: rgb(207, 107, 107);
+        transform: translateY(3px);
+        box-shadow: 2px 2px 4px black;
+    }
+     */
+}
+
+.navbar-transparency {
+
+    /** -------------------------------------------- */
+    .toggle-custom {
+        box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+        background-color: rgb(223, 140, 147);
+    }
+
+    /** -------------------------------------------- */
+
+    // Logo title 
+    .logo-title {
+        visibility: hidden;
+        color: dark !important;
+        font-size: 1.6rem;
+        font-weight: bolder;
+
+        a {
+            color: inherit;
+        }
+    }
+
+    .logo-title:hover {
+        color: #e65158 !important;
+        transform: scale(1.1);
+
+    }
+
+    .logo-title:active {
+        filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.422)) !important;
+        transform: translateY(2px);
+
+    }
+
+    /** -------------------------------------------- */
+
+    // Buttons link custom.
+    button {
+        color: rgb(0, 0, 0);
+    }
+
+    /** -------------------------------------------- */
+    // Buttons link hover.
+    .nav-btn-custom {
+        font-size: 1.15rem !important;
+        margin-left: 4px;
+    }
+
+    .nav-btn-custom:hover {
+        border-radius: 10px !important;
+        background-color: #212529 !important;
+        color: #e59da2 !important;
+        letter-spacing: 0.05rem !important;
+    }
+
+    :active .nav-btn-custom:hover {
+        border-radius: 10px !important;
+        background-color: rgba(227, 152, 158, 0.637) !important;
+        transform: translateY(3px) !important;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.305) !important;
+    }
+
+    /** -------------------------------------------- */
+    // Buttons login and register.
+    .button_change_custom {
+        margin-left: 5px;
+        color: white;
+        background-color: #212529;
+    }
+
+    .button_change_custom:hover {
+        background-color: rgb(210, 133, 133);
+        color: white;
+    }
+
+    .button_change_custom:active {
         transform: translateY(3px);
         box-shadow: 2px 2px 4px black;
     }
@@ -306,3 +410,34 @@ a {
 }
 
 /** -------------------------------------------- */
+
+.footer-custom {
+    color: white;
+    text-align: center !important;
+
+    padding: 30px;
+    background-color: #212529;
+}
+
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+    scrollbar-width: auto;
+    scrollbar-color: #e49da0 #212528;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #212528;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #e49da0;
+    border-radius: 10px;
+    border: 3px solid #212529;
+}

@@ -28,7 +28,7 @@ const Product = () => {
     useEffect(() => {
         const getProduct = async () => {
             setLoading(true);
-            const res = await fetch(`http://52.204.139.5:3000/products/${id}`);
+            const res = await fetch(`https://fakestoreapi.com/products/${id}`);
             setProduct(await res.json());
             setLoading(false);
         }
