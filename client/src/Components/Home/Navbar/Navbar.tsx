@@ -68,6 +68,7 @@ const Index = () => {
                                     <Button className="nav-btn-custom" variant="me-2" >Inicio</Button>
                                 </Link>
                                 <Button className="nav-btn-custom" variant="me-2">Produtos</Button>
+                                <Button className="nav-btn-custom" variant="me-2" disabled>Sobre</Button>
                                 <Button className="nav-btn-custom" variant="me-2" disabled>Contato</Button>
                             </Nav>
                             <Link to="/login">
