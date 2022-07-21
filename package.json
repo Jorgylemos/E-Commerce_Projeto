@@ -1,5 +1,5 @@
 {
-  "name": "E-Commerce_Projeto",
+  "name": "e_commerce_projeto",
   "version": "1.0.0",
   "main": "./server/src/index.js",
   "repository": "https://github.com/Jorgylemos/E-Commerce_Projeto.git",
