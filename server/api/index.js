@@ -6,9 +6,28 @@ const routes = require('./routes');
 const app = express()
 
 const kafka = new Kafka({
-    clientId: 'api',
+    clientId: 'certificate',
     brokers: ['localhost:9092']
 });
+
+const topic = 'issue-certificate';
+const consumer = kafka.consumer();
+
+
+async function run() {
+    await consumer.connect()
+    await consumer.subscribe({
+        topic
+    })
+    await consumer.run({
+        eachMessage: async ({
+            topic, partition, message
+        }) => {
+            const prefix = `${topic}[${partition} | ${message.offset}] / ${message.timestamp}`
+            console.log(`- ${prefix} ${message.key}#${message.value}`);
+        }
+    })
+}
 
 /** Unlock producer to all routes */
 
@@ -23,31 +42,6 @@ app.use((req, res, next) => {
 /**
     * Register routes from application
 */
-
-app.use(routes)
-
-//const consumer = kafka.consumer();
-
-const run = async () => {
-    //Producing
-
-    await producer.connect()
-    /**
-    await producer.send({
-        topic: 'test-topic',
-        messages: [
-            { value: 'Requisição feita' }
-        ]
-
-    })
-     */
-
-    //Consuming
-
-    app.listen(3333)
-
-}
-
 run().catch(console.error)
 
 
