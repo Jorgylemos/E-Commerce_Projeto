@@ -1,9 +1,4 @@
-const express = require('express');
 const { Kafka } = require('kafkajs');
-
-const routes = require('./routes');
-
-const app = express()
 
 const kafka = new Kafka({
     clientId: 'certificate',
@@ -12,7 +7,6 @@ const kafka = new Kafka({
 
 const topic = 'issue-certificate';
 const consumer = kafka.consumer();
-
 
 async function run() {
     await consumer.connect()
@@ -29,19 +23,6 @@ async function run() {
     })
 }
 
-/** Unlock producer to all routes */
-
-const producer = kafka.producer();
-
-app.use((req, res, next) => {
-    req.producer = producer;
-
-    return next();
-})
-
-/**
-    * Register routes from application
-*/
 run().catch(console.error)
 
 
